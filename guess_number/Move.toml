@@ -1,6 +1,7 @@
 [package]
 name = "guess_number"
-version = "0.0.0"
+version = "0.0.1"
+published-at = "0x628f33fcf96ebc82f275bddb7ad927b0e260e989f2131e0e1dc844ab931b57f5"
 
 # edition = "2024.alpha" # To use the Move 2024 edition, currently in alpha
 # license = ""           # e.g., "MIT", "GPL", "Apache 2.0"

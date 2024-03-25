@@ -4,8 +4,9 @@ module guess_number::guess_number {
     use sui::transfer;
     use sui::clock::{Self, Clock};
     use sui::event;
+    use sui::math;
 
-    const VERSION: u64 = 1;
+    const VERSION: u64 = 2;
 
     const ENOTVERSION: u64 = 0;
     const ENOTADMIN: u64 = 1;
@@ -63,7 +64,8 @@ module guess_number::guess_number {
 
         let des_number = ((clock::timestamp_ms(clock) % 11) as u8);
         if (number == des_number) {
-            send_prize(count.total, number, ctx);
+            let prize = (math::min((number as u64) * (count.total + 1) * 10, 255) as u8);
+            send_prize(count.total, prize, ctx);
             count.total = 0;
         } else {
             count.total = count.total + 1;
