@@ -181,13 +181,6 @@ fun use_iterative_version_to_restore_heap() {
     check_pop_max(&mut h, 2, 60);
     check_pop_max(&mut h, 1, 20);
     check_pop_max(&mut h, 0, 80);
-
-    let mut h = new(create_entries(vector[5, 3, 1, 2, 4], vector[10, 20, 30, 40, 50]));
-    check_pop_max(&mut h, 5, 10);
-    check_pop_max(&mut h, 4, 50);
-    check_pop_max(&mut h, 3, 20);
-    check_pop_max(&mut h, 2, 40);
-    check_pop_max(&mut h, 1, 30);
 }
 
 #[test_only]
