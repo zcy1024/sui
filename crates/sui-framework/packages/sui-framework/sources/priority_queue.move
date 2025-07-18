@@ -168,6 +168,35 @@ fun test_swap_remove_edge_case() {
     check_pop_max(&mut h, 0, 0);
 }
 
+#[test]
+fun use_iterative_version_to_restore_heap() {
+    let mut h = new(create_entries(vector[3, 1, 4, 2, 5, 2], vector[10, 20, 30, 40, 50, 60]));
+    check_pop_max(&mut h, 5, 50);
+    check_pop_max(&mut h, 4, 30);
+    check_pop_max(&mut h, 3, 10);
+    insert_with_iterative_version(&mut h, 7, 70);
+    check_pop_max(&mut h, 7, 70);
+    check_pop_max(&mut h, 2, 40);
+    insert_with_iterative_version(&mut h, 0, 80);
+    check_pop_max(&mut h, 2, 60);
+    check_pop_max(&mut h, 1, 20);
+    check_pop_max(&mut h, 0, 80);
+
+    let mut h = new(create_entries(vector[5, 3, 1, 2, 4], vector[10, 20, 30, 40, 50]));
+    check_pop_max(&mut h, 5, 10);
+    check_pop_max(&mut h, 4, 50);
+    check_pop_max(&mut h, 3, 20);
+    check_pop_max(&mut h, 2, 40);
+    check_pop_max(&mut h, 1, 30);
+}
+
+#[test_only]
+fun insert_with_iterative_version<T: drop>(pq: &mut PriorityQueue<T>, priority: u64, value: T) {
+    pq.entries.push_back(Entry { priority, value });
+    let index = pq.entries.length() - 1;
+    restore_heap_iterative(&mut pq.entries, index);
+}
+
 #[test_only]
 fun check_pop_max(h: &mut PriorityQueue<u64>, expected_priority: u64, expected_value: u64) {
     let (priority, value) = pop_max(h);
