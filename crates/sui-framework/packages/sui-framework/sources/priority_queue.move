@@ -55,7 +55,7 @@ public fun new_entry<T: drop>(priority: u64, value: T): Entry<T> {
     Entry { priority, value }
 }
 
-/// Create a entry vectors from the input priority vectors and value vectors.
+/// Create an entry vectors from the input priority vectors and value vectors.
 public fun create_entries<T: drop>(p: vector<u64>, v: vector<T>): vector<Entry<T>> {
     p.zip_map!(v, |priority, value| Entry { priority, value })
 }
