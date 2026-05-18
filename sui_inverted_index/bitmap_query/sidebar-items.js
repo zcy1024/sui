@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BitmapLiteral","ScanDirection"],"fn":["eval_bitmap_query_bucket_stream","eval_bitmap_query_stream","flatten_bucket_stream","intersect_n","subtract_two","union_n"],"struct":["BitmapKey","BitmapQuery","BitmapTerm"],"trait":["BitmapBucketSource"],"type":["BucketStream"]};

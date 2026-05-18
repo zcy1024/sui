@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DEFAULT_SERVICE_INFO_WATERMARK_PIPELINES","EXPERIMENTAL_QUERY_SERVICE_INFO_WATERMARK_PIPELINES"],"fn":["default_service_info_watermark_pipelines"],"struct":["ConcurrencyConfig","KvRpcServer","PoolConfig","ServerConfig"],"type":["PackageResolver"]};
